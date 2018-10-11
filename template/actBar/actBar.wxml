@@ -1,0 +1,4 @@
+<view class="actBar font-middle txt-center">
+	<text class="left-content {{activeLeft?'left-act-color':'color-h'}}">{{hasChoosed}}</text>
+	<text class="right-content bg-main {{activeRight?'right-act-color':'right-noact-color'}}">{{choosePrice}}</text>
+</view>

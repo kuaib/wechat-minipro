@@ -1,0 +1,71 @@
+/**app.wxss**/
+
+/*超出一行隐藏*/
+.overflow-one {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+/*主体风格颜色*/
+.font-main {
+	color: #f52342;
+}
+.bg-main {
+	background-color: #f52342;
+}
+.border-main {
+	border: 1px solid #f52342;
+}
+
+/*灰色字体*/
+.color-h {
+  color: #ddd;
+}
+
+/*灰色边框颜色*/
+.border-h {
+  border: 1px solid #ddd;
+}
+.border-top-h {
+  border-top: 1px solid #ddd;
+}
+.border-bottom-h {
+  border-bottom: 1px solid #ddd;
+}
+.border-left-h {
+  border-left: 1px solid #ddd;
+}
+.border-right-h {
+  border-right: 1px solid #ddd;
+}
+
+/*字体大小*/
+.font-small {
+  font-size: 24rpx;
+}
+.font-middle {
+  font-size: 30rpx;
+}
+.font-big {
+  font-size: 40rpx;
+}
+
+/*文本对齐方式*/
+.txt-center {
+  text-align: center;
+}
+.txt-left {
+  text-align: left;
+}
+.txt-right {
+  text-align: right;
+}
+
+/*浮动方向*/
+.left {
+  float: left;
+}
+.right {
+  float: right;
+}

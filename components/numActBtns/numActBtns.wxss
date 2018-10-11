@@ -1,0 +1,51 @@
+@import '/app.wxss';
+.act-btn {
+	width: 150rpx;
+	display: flex;
+	justify-content: space-between;
+}
+
+.flexEnd {
+	justify-content: flex-end !important;
+}
+
+.num-btn {
+	width: 40rpx;
+	height: 40rpx;
+	border-radius: 50%;
+	position: relative;
+}
+
+.decrease {
+	background: #fff;
+}
+.decrease::after {
+	content: '';
+	width: 16rpx;
+	height: 2rpx;
+	background: #f52342;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+}
+.increase::after {
+	content: '';
+	width: 16rpx;
+	height: 2rpx;
+	background: #fff;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+}
+.increase::before {
+	content: '';
+	width: 2rpx;
+	height: 16rpx;
+	background: #fff;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+}

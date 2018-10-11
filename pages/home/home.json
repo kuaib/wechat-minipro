@@ -1,0 +1,6 @@
+{
+	"usingComponents": {
+		"num-act-btns": "../../components/numActBtns/numActBtns",
+		"act-bar": "../../components/actBar/actBar"
+	}
+}

@@ -1,0 +1,23 @@
+<view class="wraper-home">
+	<view class="prod-list-content">
+		<view class="list-item {{index%2==1?'even':'odd'}}" data-index="{{index%2}}" wx:for="{{prodList}}" wx:key="id">
+			<view class="inner border-h">
+				<view class="img">
+					<image src="{{item.imgUrl}}"></image>
+				</view>
+				<view class="prod-name overflow-one font-small txt-center">{{item.name}}</view>
+				<view class="sku-wrap font-middle">
+					<text class="font-main"><text class="font-small">￥</text>{{item.price}} / {{item.unit}}</text>
+					<num-act-btns id="{{item.id}}" data-idx="{{index}}" num="{{item.num}}" binddecreaseAct="decreaseAct" bindincreaseAct="increaseAct"></num-act-btns>
+				</view>
+				<view class="limit bg-main" wx:if="{{item.isLimit}}">限购</view>
+			</view>
+		</view>
+	</view>
+</view>
+<!-- 使用组件的方式，因为在其他页面也要点击事件，模板的方式不能满足 -->
+<act-bar leftText="{{hasChoosed}}" rightText="{{choosePrice}}" activeLeft="{{activeLeft}}" activeRight="{{activeRight}}" left-noact-color="left-noact-color" right-noact-color="right-noact-color" bindtapRight="goBuy"></act-bar>
+
+<!-- 使用模板的方式 -->
+<!-- <include src="/template/actBar/actBar.wxml" /> -->
+<include src="/template/footer/footer.wxml" />
