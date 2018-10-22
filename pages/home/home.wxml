@@ -8,7 +8,8 @@
 				<view class="prod-name overflow-one font-small txt-center">{{item.name}}</view>
 				<view class="sku-wrap font-middle">
 					<text class="font-main"><text class="font-small">￥</text>{{item.price}} / {{item.unit}}</text>
-					<num-act-btns id="{{item.id}}" data-idx="{{index}}" num="{{item.num}}" binddecreaseAct="decreaseAct" bindincreaseAct="increaseAct"></num-act-btns>
+					<!--<num-act-btns id="{{item.id}}" data-idx="{{index}}" num="{{item.num}}" binddecreaseAct="decreaseAct" bindincreaseAct="increaseAct"></num-act-btns>-->
+                    <cart-act-btns></cart-act-btns>
 				</view>
 				<view class="limit bg-main" wx:if="{{item.isLimit}}">限购</view>
 			</view>

@@ -1,0 +1,5 @@
+<view>
+    <view class="decrease">-</view>
+    <view class="num">4</view>
+    <view class="increase">+</view>
+</view>
