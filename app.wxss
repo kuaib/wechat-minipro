@@ -1,5 +1,18 @@
 /**app.wxss**/
 
+view, text {
+    font-family: 'Avenir', Helvetica, Arial, sans-serif;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    font-style: normal;
+    text-decoration: none;
+    border: none;
+    box-sizing: border-box;
+    font-size: 24rpx;
+    color: #333;
+}
+
 /*超出一行隐藏*/
 .overflow-one {
 	overflow: hidden;
@@ -8,58 +21,14 @@
 }
 
 /*主体风格颜色*/
-.font-main {
-	color: #f52342;
+.font-color {
+	color: #f52342 !important;
 }
-.bg-main {
-	background-color: #f52342;
+.bg-color {
+	background-color: #f52342 !important;
 }
-.border-main {
-	border: 1px solid #f52342;
-}
-
-/*灰色字体*/
-.color-h {
-  color: #ddd;
-}
-
-/*灰色边框颜色*/
-.border-h {
-  border: 1px solid #ddd;
-}
-.border-top-h {
-  border-top: 1px solid #ddd;
-}
-.border-bottom-h {
-  border-bottom: 1px solid #ddd;
-}
-.border-left-h {
-  border-left: 1px solid #ddd;
-}
-.border-right-h {
-  border-right: 1px solid #ddd;
-}
-
-/*字体大小*/
-.font-small {
-  font-size: 24rpx;
-}
-.font-middle {
-  font-size: 30rpx;
-}
-.font-big {
-  font-size: 40rpx;
-}
-
-/*文本对齐方式*/
-.txt-center {
-  text-align: center;
-}
-.txt-left {
-  text-align: left;
-}
-.txt-right {
-  text-align: right;
+.border-color {
+    border-color: #f52342 !important;
 }
 
 /*浮动方向*/
@@ -68,4 +37,13 @@
 }
 .right {
   float: right;
+}
+/*清除浮动*/
+.clearfix:after {
+    content: '';
+    width: 0;
+    height: 0;
+    display: block;
+    overflow: hidden;
+    clear: both;
 }

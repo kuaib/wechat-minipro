@@ -19,7 +19,7 @@ Page({
 					unit: '盒',
 					num: 0,
 					isLimit: true,
-					imgUrl: '../../images/flower.jpg'
+					imgUrl: 'http://resource.lechun.cc/proImgStorage/3165352852202291989_O.jpg'
 				},
 				{
 					id: '1102',
@@ -28,7 +28,7 @@ Page({
 					unit: '盒',
 					num: 0,
 					isLimit: false,
-					imgUrl: '../../images/flower.jpg'
+					imgUrl: 'http://resource.lechun.cc/proImgStorage/3165352852202291989_O.jpg'
 				},
 				{
 					id: '1103',
@@ -37,7 +37,7 @@ Page({
 					unit: '支',
 					num: 0,
 					isLimit: true,
-					imgUrl: '../../images/flower.jpg'
+					imgUrl: 'http://resource.lechun.cc/proImgStorage/3165352852202291989_O.jpg'
 				},
 				{
 					id: '1104',
@@ -46,7 +46,7 @@ Page({
 					unit: '支',
 					num: 0,
 					isLimit: true,
-					imgUrl: '../../images/flower.jpg'
+					imgUrl: 'http://resource.lechun.cc/proImgStorage/3165352852202291989_O.jpg'
 				},
 				{
 					id: '1105',
@@ -55,7 +55,7 @@ Page({
 					unit: '盒',
 					num: 0,
 					isLimit: true,
-					imgUrl: '../../images/flower.jpg'
+					imgUrl: 'http://resource.lechun.cc/proImgStorage/3165352852202291989_O.jpg'
 				},
 				{
 					id: '1106',
@@ -64,7 +64,7 @@ Page({
 					unit: '盒',
 					num: 0,
 					isLimit: true,
-					imgUrl: '../../images/flower.jpg'
+					imgUrl: 'http://resource.lechun.cc/proImgStorage/3165352852202291989_O.jpg'
 				},
 				{
 					id: '1107',
@@ -73,7 +73,7 @@ Page({
 					unit: '盒',
 					num: 0,
 					isLimit: true,
-					imgUrl: '../../images/flower.jpg'
+					imgUrl: 'http://resource.lechun.cc/proImgStorage/3165352852202291989_O.jpg'
 				},
 				{
 					id: '1108',
@@ -82,11 +82,20 @@ Page({
 					unit: '盒',
 					num: 0,
 					isLimit: true,
-					imgUrl: '../../images/flower.jpg'
+					imgUrl: 'http://resource.lechun.cc/proImgStorage/3165352852202291989_O.jpg'
 				}
 			]
 		})
 	},
+
+    changeNum(e) {
+        let idx = e.currentTarget.dataset.idx;
+        let num = e.detail.num;
+        let prod = 'prodList[' + idx + '].num';
+        this.setData({
+            [prod]: num
+        })
+    },
 	// 减少商品数量
 	decreaseAct(e) {
 		let idx = e.currentTarget.dataset.idx;
