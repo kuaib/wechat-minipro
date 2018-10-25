@@ -1,13 +1,10 @@
+let app = getApp();
 Page({
 	data: {
-		prodList: [], // 商品列表
-		hasChoosed: '还未添加商品',
-		choosePrice: '满￥90元起送',
-		sumPrice: 0,	// 已选中的总价格
-		count: 0,		// 已选中的总数量
-		activeLeft: false,
-		activeRight: false,
-		pathName: 'index',	// 文件路径名称，用于切换footer
+		prodList: [],        // 商品列表
+        count: 0,		     // 已选中的总数量
+		basePrice: 90,       // 起送价格
+		pathName: 'index',	 // 文件路径名称，用于切换footer
 	},
 	onLoad() {
 		this.setData({
@@ -88,105 +85,48 @@ Page({
 		})
 	},
 
+    // 改变选购商品
     changeNum(e) {
         let idx = e.currentTarget.dataset.idx;
         let num = e.detail.num;
-        let prod = 'prodList[' + idx + '].num';
+        let prodNum = 'prodList[' + idx + '].num';
         this.setData({
-            [prod]: num
+            [prodNum]: num,
+        }, () => {
+            let obj = this.getTotalNumAnPrice();
+            this.setData({
+                count: obj.num,
+                basePrice: obj.price
+            })
         })
     },
-	// 减少商品数量
-	decreaseAct(e) {
-		let idx = e.currentTarget.dataset.idx;
-		let proNum = 'prodList[' + idx + '].num';
-		let num = this.data.prodList[idx].num - 1;
-		let price = this.data.prodList[idx].price;
-		if((this.data.sumPrice).toFixed(2) <= price) {
-			this.setData({
-				[proNum]: num,
-				sumPrice: 0,
-				count: this.data.count - 1,
-				activeLeft: false,
-				hasChoosed: '还未添加商品'
-			}, () => {
-				this.setData({
-					choosePrice: '满￥90元起送'
-				})
-			})
-		} else if((this.data.sumPrice).toFixed(2) - price >=90) {
-			this.setData({
-				[proNum]: num,
-				sumPrice: this.data.sumPrice - price,	
-				count: this.data.count - 1,
-				activeLeft: true
-			}, () => {
-				this.setData({
-					choosePrice: '立即购买',
-					hasChoosed: '已选购：' + this.data.count + '盒',
-					activeRight: true
-				})
-			})
-		}
-		else {
-			this.setData({
-				[proNum]: num,
-				sumPrice: this.data.sumPrice - price,	
-				count: this.data.count - 1,
-				activeLeft: true
-			}, () => {
-				this.setData({
-					choosePrice: '还差￥' + (90 - this.data.sumPrice).toFixed(2),
-					hasChoosed: '已选购：' + this.data.count + '盒',
-					activeRight: false
-				})
-			})
-		}
-	},
 
-	// 增加数量
-	increaseAct(e) {
-		let idx = e.currentTarget.dataset.idx;
-		let proNum = 'prodList[' + idx + '].num';
-		let num = this.data.prodList[idx].num + 1;
-		let price = this.data.prodList[idx].price;
+    // 计算已选中总数量和总价格
+    getTotalNumAnPrice() {
+	    let price = 0, num = 0;
+        this.data.prodList.forEach((item) => {
+            price += item.num * item.price;
+            num += item.num;
+        })
+        price = price >= 90 ? 0 : 90 - price;
+        return {
+            price: price,
+            num: num
+        }
+    },
 
-		if((90 - this.data.sumPrice).toFixed(2) > price) {
-			this.setData({
-				[proNum]: num,
-				sumPrice: this.data.sumPrice + price,
-				count: this.data.count + 1,
-				activeLeft: true
-			}, () => {
-				this.setData({
-					choosePrice: '还差￥' + (90 - this.data.sumPrice).toFixed(2),
-					hasChoosed: '已选购：' + this.data.count + '盒'
-				})
-			})
-		} 
-		else {
-			this.setData({
-				[proNum]: num,
-				sumPrice: this.data.sumPrice + price,	
-				count: this.data.count + 1,
-				activeLeft: true
-				
-			}, () => {
-				this.setData({
-					choosePrice: '立即购买',
-					activeRight: true,
-					hasChoosed: '已选购：' + this.data.count + '盒'
-				})
-			})
-		}
-	},
 
 	// 立即购买
 	goBuy() {
-		if(this.data.activeRight) {
-			wx.navigateTo({
-				url: '/pages/confirmOrder/confirmOrder'
-			})
+		if(this.data.basePrice == 0) {
+		    app.requestApp('/collage/getCollageProductList', {
+                bindCode: '14d4644b7a8847f49bfcbc85c34d0a8a'
+            }, '', () => {
+                // wx.navigateTo({
+                //     url: '/pages/confirmOrder/confirmOrder'
+                // })
+            })
+
 		}
 	}
 })

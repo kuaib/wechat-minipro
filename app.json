@@ -8,7 +8,6 @@
     "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#f52342",
     "navigationBarTextStyle":"white",
-    "backgroundColor": "#000000",
-    "enablePullDownRefresh": true
+    "backgroundColor": "#000000"
   }
 }

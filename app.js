@@ -42,5 +42,23 @@ App({
     },
     globalData: {
         userInfo: null
+    },
+
+    // 公用请求接口
+    requestApp(url, data, method, successCallback, failCallback, completeCallback) {
+        wx.request({
+            url: 'https://mallapi.lechun.cc' + url,
+            data: data,
+            method: method ? method : 'GET',
+            success: function(res) {
+                successCallback && successCallback(res)
+            },
+            fail: function() {
+                failCallback && failCallback()
+            },
+            complete: function() {
+                completeCallback && completeCallback()
+            }
+        })
     }
 })

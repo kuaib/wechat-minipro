@@ -1,10 +1,9 @@
 /* pages/home/home.wxss */
 @import '/components/cartActBtns/cartActBtns.wxss';
-/*@import '/components/numActBtns/numActBtns.wxss';*/
-/*@import '/template/footer/footer.wxss';*/
-/*@import '/components/actBar/actBar.wxss';*/
+@import '/template/footer/footer.wxss';
 .list-wrap {
-    margin: 3% 3% 220rpx 3%;
+    margin: 3% 3% 0 3%;
+    padding-bottom: 200rpx
 }
 
 .list-item {
@@ -41,6 +40,38 @@
 }
 .even {
     margin-left: 1.5%;
+}
+
+
+/*底部价格和数量*/
+.bottom-act {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 110rpx;
+    box-shadow: 0px -1px 3px #dddd;
+    height: 90rpx;
+    line-height: 90rpx;
+    text-align: center;
+}
+
+.bottom-act .left, .bottom-act .right {
+    text-align: center;
+    font-size: 28rpx;
+}
+.bottom-act .left {
+    background: #fff;
+    width: 40%;
+}
+.bottom-act .right {
+    width: 60%;
+    color: #fff;
+}
+.bottom-act .noChoose {
+    color: #ccc;
+}
+.bottom-act .noFull {
+    color: #fe5a5a;
 }
 
 

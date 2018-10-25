@@ -1,5 +1,0 @@
-<view class="act-btn {{num <=0?'flexEnd':''}}">
-	<view class="num-btn border-main decrease" bindtap="decreaseAct" hidden="{{num <= 0}}"></view>
-	<view class="num-text" hidden="{{num <= 0}}">{{num}}</view>
-	<view class="num-btn border-main bg-main increase" bindtap="increaseAct"></view>
-</view>

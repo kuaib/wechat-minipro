@@ -1,20 +1,4 @@
 <view class="list-wrap clearfix">
-    <!--<view class="list-item {{index%2==1?'even':'odd'}}" data-index="{{index%2}}" wx:for="{{prodList}}" wx:key="id">-->
-        <!--<view class="inner border-h">-->
-            <!--<view class="img">-->
-                <!--<image src="{{item.imgUrl}}"></image>-->
-            <!--</view>-->
-            <!--<view class="prod-name overflow-one font-small txt-center">{{item.name}}</view>-->
-            <!--<view class="sku-wrap font-middle">-->
-                <!--<text class="font-main"><text class="font-small">￥</text>{{item.price}} / {{item.unit}}</text>-->
-                <!--&lt;!&ndash;<num-act-btns id="{{item.id}}" data-idx="{{index}}" num="{{item.num}}" binddecreaseAct="decreaseAct" bindincreaseAct="increaseAct"></num-act-btns>&ndash;&gt;-->
-                <!--<view class="decrease btn">-</view>-->
-                <!--<text class="num">33</text>-->
-                <!--<view class="increase btn">+</view>-->
-            <!--</view>-->
-            <!--<view class="limit bg-main" wx:if="{{item.isLimit}}">限购</view>-->
-        <!--</view>-->
-    <!--</view>-->
     <view class="list-item {{index%2==0?'odd':'even'}}" wx:for="{{prodList}}" wx:key="item.id">
         <view class="img">
             <image src="{{item.imgUrl}}"></image>
@@ -25,11 +9,18 @@
             <cart-act-btns class="right" data-idx="{{index}}" bindchangeNumF="changeNum"></cart-act-btns>
         </view>
     </view>
-
 </view>
-<!-- 使用组件的方式，因为在其他页面也要点击事件，模板的方式不能满足 -->
-<!--<act-bar leftText="{{hasChoosed}}" rightText="{{choosePrice}}" activeLeft="{{activeLeft}}" activeRight="{{activeRight}}" left-noact-color="left-noact-color" right-noact-color="right-noact-color" bindtapRight="goBuy"></act-bar>-->
+
+<!--底部价格和数量显示-->
+<view class="bottom-act">
+    <text class="left noChoose" hidden="{{count>0}}">还未添加商品</text>
+    <text class="left" hidden="{{count==0}}">已选购：{{count}}盒</text>
+    <text class="right bg-color noFull" hidden="{{basePrice==0}}">还差￥{{tools.toFixed2(basePrice)}}</text>
+    <text class="right bg-color" hidden="{{basePrice!=0}}" bindtap="goBuy">立即购买</text>
+</view>
+
+<!--module的名字可以随便命名，使用的时候不要用错就可以哦-->
+<wxs module="tools" src="../../utils/filter.wxs"></wxs>
 
 <!-- 使用模板的方式 -->
-<!-- <include src="/template/actBar/actBar.wxml" /> -->
-<!--<include src="/template/footer/footer.wxml" />-->
+<include src="/template/footer/footer.wxml" />
